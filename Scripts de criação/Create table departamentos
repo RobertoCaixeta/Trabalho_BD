@@ -1,0 +1,6 @@
+CREATE TABLE Departamentos (
+  idDepartamentos INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Nome VARCHAR(100) NULL,
+  Sigla VARCHAR(50) NULL,
+  PRIMARY KEY(idDepartamentos)
+);
