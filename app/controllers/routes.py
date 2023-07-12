@@ -219,15 +219,10 @@ def UpdateClasses(id):
     )
 
     if request.method == 'POST':
-        print("professoraaaaaaaaaaa = ")
         professor = request.form.get('professor')
-        print("professor = ", professor)
         disciplina = request.form.get('disciplina')
-        print("disciplina = ", disciplina)
         numero = request.form.get('numero')
-        print("numero =  ", numero)
         semestre = request.form.get('semestre')
-        print("semestre = ", semestre)
         cursor = con.cursor() 
         query = 'UPDATE `trabalho_bd`.`turmas` SET `idTurmas` = %s, `Professores_idProfessores` = %s, `Disciplinas_idDisciplinas` = %s, `Número` = %s, `semestre` = "%s" WHERE `idTurmas` = %s;' % (id, professor,disciplina,numero,semestre, id)
         
