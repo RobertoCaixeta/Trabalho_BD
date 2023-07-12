@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <title>Meu app</title>
+  <style>
+    .card {
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
+    
+    .card h3 {
+        color: #333;
+        font-size: 20px;
+        margin-top: 0;
+    }
+    
+    .card p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .container{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .blue-button {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .red-button {
+        background-color: red;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+</style>
+</head>
+<body>
+    <header>
+      {% include 'header.html' %}
+    </header>
+    <div class="container">
+        {% for avaliacao in avaliacoes%}
+        <div class="card">
+            <h3>{{avaliacao['nomeDisciplina']}} - Turma: {{avaliacao['Número']}}</h3>
+            <p>Aluno: {{avaliacao['nome']}}</p>
+            <p>Curso: {{avaliacao['curso']}}</p>
+            <p>Matrícula : {{avaliacao['matricula']}}</p>
+            <p>Email: {{avaliacao['email']}}</p>
+            <p>Professor: {{avaliacao['nomeProfessor']}}</p>
+            <p>Semestre: {{avaliacao['semestre']}}</p>
+            <p>Comentário: {{avaliacao['Comentario']}}</p>
+            <div>
+                <button class="blue-button" data-id="{{ avaliacao['idAvaliações'] }}">Editar</button>
+                <button class="red-button" data-id="{{ avaliacao['idAvaliações'] }}">Eliminar</button>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.red-button').click(function() {
+                var id = $(this).data('id');
+                console.log("id = ", id)
+                $.ajax({
+                    url: "/DeleteAvaliations/" + id,
+                    method: "DELETE",
+                    success: function(response) {
+                        location.reload() 
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                        
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            $('.blue-button').click(function() {
+                var id = $(this).data('id');
+                console.log("id = ", id)
+                $.ajax({
+                    url: "/UpdateAvaliations/" + id,
+                    method: "PUT",
+                    success: function(response) {
+                        window.location.href = "http://127.0.0.1:5000/UpdateAvaliations/" + id
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                        
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
