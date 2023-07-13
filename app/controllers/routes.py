@@ -9,7 +9,7 @@ def main():
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
 
     cursor = con.cursor(dictionary=True) 
@@ -30,7 +30,7 @@ def mainAvaliacoes():
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
 
     cursor = con.cursor(dictionary=True) 
@@ -51,7 +51,7 @@ def deleteAvaliation(id):
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
     cursor = con.cursor()
     query = 'DELETE FROM avaliações where idAvaliações = %s;'
@@ -70,7 +70,7 @@ def UpdateAvaliation(id):
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
 
     if request.method == 'POST':
@@ -112,7 +112,7 @@ def CreateAvaliacoes():
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
 
     if request.method == 'POST':
@@ -153,7 +153,7 @@ def CreateTurmas():
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
 
     if request.method == 'POST':
@@ -196,7 +196,7 @@ def deleteClass(id):
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
     cursor = con.cursor()
     query = 'DELETE FROM turmas where idTurmas = %s;'
@@ -215,7 +215,7 @@ def UpdateClasses(id):
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
 
     if request.method == 'POST':
@@ -259,7 +259,7 @@ def CreateUser():
         host='localhost',
         database='trabalho_bd',
         user='root',
-        password='Imcormrorcro123*'
+        password=''
     )
 
     if request.method == 'POST':
