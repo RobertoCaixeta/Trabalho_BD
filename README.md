@@ -7,7 +7,7 @@
   <p>Com o python instalado, instale o gerenciador de pacotes pip: https://pip.pypa.io/en/stable/cli/pip_install/</p>
 
   <p>Em seguida na diretório do projeto: </p>
-  <p>Na pasta view, executar o comando: python avaliacao.py</p>
+  <p>Na pasta view, executar o comando: python avaliacoes.py</p>
   <p>Instalar o Flask:  pip install flask  </p>
 
   <p>Atualizar as dependências do projeto: pip freeze > requirements.txt</p>
