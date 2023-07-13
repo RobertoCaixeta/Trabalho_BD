@@ -34,10 +34,9 @@ def mainAvaliacoes():
     )
 
     cursor = con.cursor(dictionary=True) 
-    query = "SELECT a.idAvaliações,a.Comentario, e.nome, e.curso, e.matricula, e.email, t.Número, t.semestre, p.nome AS nomeProfessor, d.nome as nomeDisciplina FROM avaliações a JOIN estudantes e ON a.Estudantes_id = e.id JOIN turmas t ON a.turmas_id = t.idTurmas JOIN professores p ON t.Professores_idProfessores  = p.idProfessores JOIN disciplinas d ON t.Disciplinas_idDisciplinas = d.idDisciplinas;"
+    query = "SELECT * FROM avaliacoes_view; "
     cursor.execute(query)
     avaliacoes = cursor.fetchall()
-    print("avaliacoes")
 
     cursor.close()
     con.close()
