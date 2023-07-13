@@ -16,3 +16,4 @@
 
   <p>E para rodar o projeto executar o comando: flask --app run run --debug</p>
 
+  <p>No arquivo routes.py, nos métodos mysql.connector.connect, deve se atualizar os dados da database de acordo com o que estiver sendo usado</p>
